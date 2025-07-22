@@ -414,8 +414,5 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
+# Ignore Migrations folder
 **/Migrations/
-
-# Ignore appsettinjson files
-**/appsettings.json
-**/appsettings.*.json
