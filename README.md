@@ -19,7 +19,7 @@ These are the main features of the WeatherMicroservice:
 - Retrieve current weather data for a city/country via external API (OpenWeatherMap).
 - Save current weather to a local database.
 - Lookup historical weather data by date from the local database.
-- RESTful API endpoints with Swagger/OpenAPI documentation.
+- RESTful API endpoints with Swagger/OpenAPI.
 - Data persistence using Entity Framework Core.
 - Extensible service/repository architecture.
 
@@ -30,7 +30,6 @@ These are the main technologies used in this project:
 - ASP.NET Core Web API
 - Entity Framework Core
 - Swagger/OpenAPI
-- Dependency Injection
 
 ## Getting Started
 
@@ -43,3 +42,36 @@ These are the main technologies used in this project:
 ### Setup
 
 1. **Clone the repository:**
+
+2. **Configure the database connection:**
+- Open `appsettings.json` in the main project.
+- Update the `ConnectionStrings:DefaultConnection` value to point to your SQL Server instance.
+  ```json
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=WeatherDb;Trusted_Connection=True;"
+  }
+  ```
+
+3. **Configure the external weather API:**
+- Register for an [OpenWeatherMap API key](https://openweathermap.org/api). To do this, you may need to create an account if you don't have one.
+- Add your API key to `appsettings.json`:
+  ```json
+  "WeatherApi": {
+    "ApiKey": "YOUR_OPENWEATHERMAP_API_KEY"
+  }
+  ```
+
+4. **Apply database migrations:**
+- Open a terminal in the solution directory.
+- Run the following commands to create the database schema:
+  ```sh
+  dotnet tool install --global dotnet-ef
+  dotnet ef database update --project WeatherMicroservice
+  ```
+
+5. **Run the application:**
+
+
+### Running Unit Tests
+
+- You can also run and debug tests directly in Visual Studio using the __Test Explorer__ window.
